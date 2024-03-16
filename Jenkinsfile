@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                 git branch: 'master', url:'https://github.com/582Bamfo/iam.git'
+                 git branch: 'main', url:'https://github.com/582Bamfo/iam.git'
             }
         }
 

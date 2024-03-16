@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    //options {
+    options {
         // Timeout counter starts AFTER agent is allocated
-     //   timeout(time: 1, unit: 'SECONDS')
-   // }
+        timeout(time: 1, unit: 'SECONDS')
+    }
     stages {
         stage('git checkout') {
             steps {
@@ -28,17 +28,17 @@ pipeline {
             }
         }
 
-        // stage ('terraform apply') {
-        //     steps {
-        //         sh 'terraform apply -auto-approve'
-        //     }
-        // }
-
-        stage('terraform destroy') {
-            steps{
-                sh 'terraform destroy -auto-approve'
+        stage ('terraform apply') {
+            steps {
+                sh 'terraform apply -auto-approve'
             }
         }
+
+        // stage('terraform destroy') {
+        //     steps{
+        //         sh 'terraform destroy -auto-approve'
+        //     }
+        // }
     }
     post {
         success {

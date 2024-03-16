@@ -2,7 +2,7 @@ pipeline {
     agent any
     options {
         // Timeout counter starts AFTER agent is allocated
-        timeout(time: 1, unit: 'SECONDS')
+        timeout(time: 1, unit: 'HOURS')
     }
     stages {
         stage('git checkout') {
@@ -42,7 +42,11 @@ pipeline {
     }
     post {
         success {
-            echo 'Pipeline run was successful'
+            emailext(
+                subject: "Jenkins Build Notification: Successful",
+                body: "The build was successful.",
+                to: "bamfodaniel@yahoo.com"
+            )
         }
     }
 }

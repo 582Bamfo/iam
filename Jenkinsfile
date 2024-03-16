@@ -17,20 +17,20 @@ pipeline {
             }
         }
 
-        stage("terraform fmt") {
+        stage('fmt') {
             steps {
-                sh "terraform fmt"
+                sh 'terraform fmt'
             }
         }
-        stage ("terraform plan") {
+        stage ( 'plan') {
             steps {
-                sh "terraform plan"
+                sh 'terraform plan'
             }
         }
 
-        stage ("terraform apply") {
+        stage ('terraform apply') {
             steps {
-                sh "terraform apply -auto-approve"
+                sh 'terraform apply -auto-approve'
             }
         }
     }

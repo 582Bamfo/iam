@@ -22,23 +22,38 @@ pipeline {
                 sh 'terraform fmt'
             }
         }
+
+          
+        stage('tfsec') {
+           agent {
+            docker { 
+               image 'tfsec/tfsec-ci:v0.57.1' 
+               reuseNode true
+             }
+           }
+            steps {
+             sh '''
+              tfsec . --no-color
+            '''
+              }
+        }
         stage ( 'plan') {
             steps {
                 sh 'terraform plan'
             }
         }
 
-        // stage ('terraform apply') {
-        //     steps {
-        //         sh 'terraform apply -auto-approve'
-        //     }
-        // }
-
-        stage('terraform destroy') {
-            steps{
-                sh 'terraform destroy -auto-approve'
+        stage ('terraform apply') {
+            steps {
+                sh 'terraform apply -auto-approve'
             }
         }
+
+        // stage('terraform destroy') {
+        //     steps{
+        //         sh 'terraform destroy -auto-approve'
+        //     }
+        // }
     }
     post {
         success {

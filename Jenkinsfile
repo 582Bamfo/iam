@@ -43,9 +43,9 @@ pipeline {
     post {
         success {
             emailext(
-                subject: "Jenkins Build Notification: Successful",
-                body: "The build was successful.",
-                to: "bamfodaniel@yahoo.com"
+                subject: 'Jenkins Build Notification: Successful',
+                body: 'The build was successful.',
+                to: 'bamfodaniel@yahoo.com'
             )
         }
     }

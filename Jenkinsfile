@@ -26,8 +26,8 @@ pipeline {
           
         stage('tfsec') {
            agent {
-            dockerContainer { 
-               image 'tfsec/tfsec-ci:v0.57.1' 
+              docker { 
+                image 'tfsec/tfsec-ci:v0.57.1' 
                
              }
            }

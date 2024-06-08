@@ -56,11 +56,12 @@ pipeline {
         }
     }
 
-    
-    always {
+    post {
+       always {
             // Steps that run whether the pipeline succeeds or fails
-        cleanWs()  // Clean up the entire workspace
+          cleanWs()  // Clean up the entire workspace
     }  
+    }
     // post {
     //     success {
     //         emailext(

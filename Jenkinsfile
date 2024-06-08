@@ -43,25 +43,25 @@ pipeline {
             }
         }
 
-        // stage ('terraform apply') {
-        //     steps {
-        //         sh 'terraform apply -auto-approve'
-        //     }
-        // }
-
-        stage('terraform destroy') {
-            steps{
-                sh 'terraform destroy -auto-approve'
+        stage ('terraform apply') {
+            steps {
+                sh 'terraform apply -auto-approve'
             }
         }
+
+        // stage('terraform destroy') {
+        //     steps{
+        //         sh 'terraform destroy -auto-approve'
+        //     }
+        // }
     }
-    post {
-        success {
-            emailext(
-                subject: 'Jenkins Build Notification: Successful',
-                body: 'The build was successful.',
-                to: 'bamfodaniel@yahoo.com'
-            )
-        }
-    }
+    // post {
+    //     success {
+    //         emailext(
+    //             subject: 'Jenkins Build Notification: Successful',
+    //             body: 'The build was successful.',
+    //             to: 'bamfodaniel@yahoo.com'
+    //         )
+    //     }
+    // }
 }

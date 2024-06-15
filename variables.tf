@@ -15,7 +15,7 @@ variable "name" {
 }
 
 variable "tag_name" {
-  default = "danb"
+  default = "dan"
 }
 
 # variable "tag" {

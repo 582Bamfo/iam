@@ -1,6 +1,6 @@
 variable "name" {
   type = list(string)
-  default = [ "lin","lau", "kay" ]
+  default = [ "lin","lau", "kay"," Nic" ]
 }
 
  variable "ami" {

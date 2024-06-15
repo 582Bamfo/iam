@@ -49,19 +49,19 @@ pipeline {
         //     }
         // }
 
-        stage('terraform destroy') {
-            steps{
-                sh 'terraform destroy -auto-approve'
-            }
-        }
+        // stage('terraform destroy') {
+        //     steps{
+        //         sh 'terraform destroy -auto-approve'
+        //     }
+        // }
     }
 
-    post {
-       always {
-            // Steps that run whether the pipeline succeeds or fails
-          cleanWs()  // Clean up the entire workspace
-    }  
-    }
+    // post {
+    //    always {
+    //         // Steps that run whether the pipeline succeeds or fails
+    //       cleanWs()  // Clean up the entire workspace
+    // }  
+    // }
     // post {
     //     success {
     //         emailext(

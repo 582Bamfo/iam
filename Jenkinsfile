@@ -11,7 +11,7 @@ pipeline {
             }
         }
 
-        stage('git init') {
+        stage('terraform init') {
             steps {
                 sh 'terraform init'
             }

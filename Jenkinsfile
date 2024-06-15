@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                 git branch: 'main', url:'https://github.com/582Bamfo/iam.git'
+                 git branch: 'my-feature', url:'https://github.com/582Bamfo/iam.git'
             }
         }
 
